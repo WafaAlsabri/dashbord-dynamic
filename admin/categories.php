@@ -12,7 +12,7 @@
       		<h2>Manage Category</h2>
       	</div>
       	<div class="col-2">
-      		<a href="#" data-toggle="modal" data-target="#add_category_modal" class="btn btn-secondary btn-sm">Add Category</a>
+      		<a href="#" data-toggle="modal" data-target="#add_category_modal" class="btn btn-primary btn-sm">Add Category</a>
       	</div>
       </div>
       
@@ -81,7 +81,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">edit Category</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

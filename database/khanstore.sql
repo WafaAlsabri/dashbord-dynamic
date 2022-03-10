@@ -1,12 +1,32 @@
-
+-- phpMyAdmin SQL Dump
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 15, 2019 at 06:46 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Database: `khanstore`
+--
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
@@ -17,17 +37,20 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `is_active`) VALUES
-(8, 'wafa', 'wafaalsabri23@gmail.com', '$2y$10$faZZLgoAGoKWqXOqtrnfIO1auBgv78swfHoLdJhpXZT0BWNBa36X2', '0'),
-(9, 'hala', 'wafaalsabri21@gmail.com', '$2y$10$HDTIUVG2TsA0h9CVIRznNOa6bYgVGCi04TVGVbowWwVK/7h26sjia', '0');
+(3, 'Rizwan', 'rizwan@gmail.com', '$2y$10$Z1DnKbJRDFUTHMI7y1vSqeU3.Y9cgDyC4AeWx4.ucH34z/mkzL2E.', '0'),
+(4, 'ajay', 'ajay@gmail.com', '$2y$10$UGzx/ODNB4ZSFruRF8BN2eC/NNE.6MBhfTTYKtUo.k4ZVHZFD85DO', '0'),
+(5, 'Rizwan', 'rizwankhan@gmail.com', '$2y$10$qZ0OoyX8bhAVxDFM/fx8leZSZwlyq15c1C/KTnaqDLSx6eCDJ0VpC', '0'),
+(6, 'Faizan', 'faizan@gmail.com', '$2y$10$Ll2.sETLuB8sdhh1LRK4e.cQqn4CtTEudFg.exhf76D6rGzSOwWNm', '0'),
+(7, 'Ajay Kumar', 'ajaykumar@gmail.com', '$2y$10$8GlkawEDsNrOQr8Vgv0GceD/MhVpHAXM4xqtMo0.SUaHFXe03MRdi', '0');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `brands`
+-- Table structure for table `brands`
 --
 
 CREATE TABLE `brands` (
@@ -36,10 +59,11 @@ CREATE TABLE `brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `brands`
+-- Dumping data for table `brands`
 --
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
+(1, 'HP'),
 (2, 'Samsung'),
 (3, 'Apple'),
 (4, 'Sony'),
@@ -48,7 +72,7 @@ INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -59,20 +83,10 @@ CREATE TABLE `cart` (
   `qty` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- إرجاع أو استيراد بيانات الجدول `cart`
---
-
-INSERT INTO `cart` (`id`, `p_id`, `ip_add`, `user_id`, `qty`) VALUES
-(4, 1, '::1', -1, 1),
-(5, 2, '::1', -1, 1),
-(6, 4, '::1', -1, 1),
-(7, 5, '::1', -1, 1);
-
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -81,19 +95,21 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
+(2, 'Ladies Wearss'),
+(3, 'Mens Wear'),
 (4, 'Kids Wear'),
 (5, 'Furnitures'),
 (6, 'Home Appliances'),
-(12, 'Mobile89s');
+(12, 'Mobiles');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -106,7 +122,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `product_id`, `qty`, `trx_id`, `p_status`) VALUES
@@ -118,7 +134,7 @@ INSERT INTO `orders` (`order_id`, `user_id`, `product_id`, `qty`, `trx_id`, `p_s
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -134,7 +150,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_qty`, `product_desc`, `product_image`, `product_keywords`) VALUES
@@ -146,7 +162,7 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `user_info`
+-- Table structure for table `user_info`
 --
 
 CREATE TABLE `user_info` (
@@ -161,7 +177,7 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `user_info`
+-- Dumping data for table `user_info`
 --
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) VALUES
@@ -225,7 +241,7 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -237,7 +253,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -264,11 +280,11 @@ ALTER TABLE `user_info`
   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- قيود الجداول المحفوظة
+-- Constraints for dumped tables
 --
 
 --
--- القيود للجدول `products`
+-- Constraints for table `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `fk_product_brand` FOREIGN KEY (`product_brand`) REFERENCES `brands` (`brand_id`),
